@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <ErrorInfo>
+    <ErrorCode>0</ErrorCode>
+  </ErrorInfo>
+  <Results>
+    <ResultQuery>
+      <CLNTID>133</CLNTID>
+      <CLNTGRPID>1</CLNTGRPID>
+      <COMPANYID />
+      <CLNTNAME>Альошин  Михайло</CLNTNAME>
+      <CLNTBIRTHDAY>19810912000000</CLNTBIRTHDAY>
+      <LOCKED>0</LOCKED>
+      <DELFLAG>0</DELFLAG>
+      <UPDATENUM>1556</UPDATENUM>
+    </ResultQuery>
+  </Results>
+</Root>

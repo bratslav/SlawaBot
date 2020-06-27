@@ -1,0 +1,16 @@
+1288551964:AAHF1VIJvu8JJhs4vnNC4vV9d9J3jQAh2Fg
+WhiteDryBot
+
+1ShRHAgk0EEU
+
+
+>>> from ftplib import FTP
+>>> ftp = FTP('vs1960.mirohost.net')
+>>> ftp.login('itteam','1ShRHAgk0EEU')
+'230 User itteam logged in'
+>>> ftp.cwd('/wp-content/uploads/2020/05/')
+'250 CWD command successful'
+>>> listing = []
+>>> ftp.retrlines("LIST", listing.append)
+>>> words = listing[3].split(None, 8)
+>>> words[8]
