@@ -45,6 +45,17 @@ def run_anketa(message: object, tekUser: object) -> object:
     tekUser.NumQw = 1
     tekUser.Last_message = bot.send_message(message.chat.id, "Для реєстрації потрібно заповнити анкету. Починаємо?", reply_markup=key)
 
+def run_record(message: object, tekUser: object) -> object:
+    if tekUser == -1:
+        Kepper.NewChat(c.message.chat.id)
+        tekUser = Kepper.find(c.message)
+    key = types.InlineKeyboardMarkup()
+    but_1 = types.InlineKeyboardButton(text="Да",  callback_data="ДаЗапись")
+    but_2 = types.InlineKeyboardButton(text="Нет",  callback_data="Нет")
+    key.add(but_1, but_2)
+    tekUser.NumQw = 1
+    tekUser.Last_message = bot.send_message(message.chat.id, "Записати в базу даних?", reply_markup=key)
+
 
 def AfterAvtor(message,tekUser):
     if tekUser == -1:

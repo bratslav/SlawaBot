@@ -112,6 +112,10 @@ def inlin(c):
         print("Нет")
         delete_last_message(c.message)
         menu(c.message, tekUser)
+    elif c.data == "ДаЗапись":
+        print("Да запись")
+        delete_last_message(c.message)
+        record_profil(c.message, tekUser)
     elif c.data == "Ме":
         tekUser.pol = 'Чоловік'
         delete_last_message(c.message)

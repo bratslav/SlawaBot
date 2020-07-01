@@ -5,14 +5,14 @@
   </ErrorInfo>
   <Results>
     <ResultQuery>
-      <CLNTID>15460</CLNTID>
-      <CLNTGRPID>1</CLNTGRPID>
+      <CLNTID>24</CLNTID>
+      <CLNTGRPID>2</CLNTGRPID>
       <COMPANYID />
-      <CLNTNAME>Соболев Дмитрий Сергеевич</CLNTNAME>
-      <CLNTBIRTHDAY>19870319000000</CLNTBIRTHDAY>
+      <CLNTNAME>Владислав Братиков </CLNTNAME>
+      <CLNTBIRTHDAY>20181107000000</CLNTBIRTHDAY>
       <LOCKED>0</LOCKED>
       <DELFLAG>0</DELFLAG>
-      <UPDATENUM>27006</UPDATENUM>
+      <UPDATENUM>7</UPDATENUM>
     </ResultQuery>
   </Results>
 </Root>

@@ -3,5 +3,28 @@
   <ErrorInfo>
     <ErrorCode>0</ErrorCode>
   </ErrorInfo>
-  <Results />
+  <Results>
+    <ResultQuery>
+      <DCARDID>102014</DCARDID>
+      <CLNTID>15460</CLNTID>
+      <DCARDCODE>0676853273</DCARDCODE>
+      <DCARDNAME />
+      <ISPAYMENT>0</ISPAYMENT>
+      <PINCODE />
+      <LOCKED>0</LOCKED>
+      <DELFLAG>0</DELFLAG>
+      <UPDATENUM>92438</UPDATENUM>
+    </ResultQuery>
+    <ResultQuery>
+      <DCARDID>15456</DCARDID>
+      <CLNTID>15460</CLNTID>
+      <DCARDCODE>8800000154541</DCARDCODE>
+      <DCARDNAME />
+      <ISPAYMENT>1</ISPAYMENT>
+      <PINCODE />
+      <LOCKED>0</LOCKED>
+      <DELFLAG>0</DELFLAG>
+      <UPDATENUM>22</UPDATENUM>
+    </ResultQuery>
+  </Results>
 </Root>

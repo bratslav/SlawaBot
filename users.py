@@ -89,41 +89,43 @@ def get_client(message, tekUser):
                                 lc = child2.text
 #        print('full_name', full_name)
 #        print('lc', lc)
-        if lc == '0':
-            tekUser.name = full_name
-            tekUser.full_name = full_name
+        try:
+            if lc == '0':
+                tekUser.name = full_name
+                tekUser.full_name = full_name
 #            print(dy,mn,yr)
-            s = dy
-            if mn == '01':
-                s = s + ' января ' + yr
-            elif mn == '02':
-                s = s + ' февраля ' + yr
-            elif mn == '03':
-                s = s + ' марта ' + yr
-            elif mn == '04':
-                s = s + ' апреля ' + yr
-            elif mn == '05':
-                s = s + ' мая ' + yr
-            elif mn == '06':
-                s = s + ' июня ' + yr
-            elif mn == '07':
-                s = s + ' июля ' + yr
-            elif mn == '08':
-                s = s + ' августа ' + yr
-            elif mn == '09':
-                s = s + ' сентября ' + yr
-            elif mn == '10':
-                s = s + ' октября ' + yr
-            elif mn == '11':
-                s = s + ' ноября ' + yr
-            elif mn == '12':
-                s = s + ' дкаюря ' + yr
-            print(s)
-            tekUser.birth_date = s
-        else:
-            tekUser.full_name = ''
-            tekUser.birth_date = ''
-
+                s = dy
+                if mn == '01':
+                    s = s + ' января ' + yr
+                elif mn == '02':
+                    s = s + ' февраля ' + yr
+                elif mn == '03':
+                    s = s + ' марта ' + yr
+                elif mn == '04':
+                    s = s + ' апреля ' + yr
+                elif mn == '05':
+                    s = s + ' мая ' + yr
+                elif mn == '06':
+                    s = s + ' июня ' + yr
+                elif mn == '07':
+                    s = s + ' июля ' + yr
+                elif mn == '08':
+                    s = s + ' августа ' + yr
+                elif mn == '09':
+                    s = s + ' сентября ' + yr
+                elif mn == '10':
+                    s = s + ' октября ' + yr
+                elif mn == '11':
+                    s = s + ' ноября ' + yr
+                elif mn == '12':
+                    s = s + ' дкаюря ' + yr
+                print(s)
+                tekUser.birth_date = s
+            else:
+                tekUser.full_name = ''
+                tekUser.birth_date = ''
+        except:
+            print('Непонятная ошибка')
     url = 'http://185.80.232.179:8090/FB570E97-40C5-4690-9037-94E20BC0BC88/clntformproperty?dcardcode=' + tekUser.phone_nuber
     res1 = requests.get(url)
 #    print(res1.text)
@@ -286,7 +288,7 @@ def ShowProfil(message, tekUser):
     bot.send_message(message.chat.id, "I'мя: " + tekUser.name)
     bot.send_message(message.chat.id, "По батькові: " + tekUser.otch)
     bot.send_message(message.chat.id, "Повне і'мя: " + tekUser.fam + ' ' + tekUser.name  + ' ' + tekUser.otch)
-    bot.send_message(message.chat.id, 'Номер телефону: ' + tekUser.phone_nuber + ' ' + tekUser.phone)
+    bot.send_message(message.chat.id, 'Номер телефону: ' + tekUser.phone)
     if tekUser.birth_date == None:
         dataR = '-'
     else:
