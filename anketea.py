@@ -275,7 +275,7 @@ def me_jo(message: object, tekUser: object) -> object:
     tekUser.enter_pol = 0
     tekUser.enter_fam = 1
     tekUser.enter_mode = 1;
-    tekUser.Last_message = bot.send_message(message.chat.id, 'Стать (Жінка/Чоловік):', reply_markup=key)
+    tekUser.Last_message = bot.send_message(message.chat.id, 'Стать (Чоловік/Жінка):', reply_markup=key)
 
 
 def qwect(message: object, tekUser: object) -> object:
@@ -290,7 +290,7 @@ def qwect(message: object, tekUser: object) -> object:
         tekUser.enter_mode = 1
         if tekUser.NumQw == 1:
             tekUser.enter_pol = 1
-            Qwestion = 'Стать (Жінка/Чоловік):'
+            Qwestion = 'Стать (Чоловік/Жінка):'
         elif tekUser.NumQw == 2:
             tekUser.enter_fam = 1
             Qwestion = 'Прізвище:'
@@ -317,8 +317,11 @@ def qwect(message: object, tekUser: object) -> object:
             Qwestion = 'Мобільний телефон +380NN-NNN-NN-NN:'
         else: #tekUser.NumQw == 10:
             tekUser.enter_em = 1
-            Qwestion = 'Електроний адрес:'
-    tekUser.NumQw = tekUser.NumQw + 1
+            Qwestion = 'Електронна адреса:'
+    if tekUser.NumQw == 5:
+        tekUser.NumQw = 8
+    else:
+        tekUser.NumQw = tekUser.NumQw + 1
 
     if tekUser.NumQw == 2:
         me_jo(message,tekUser)
@@ -351,10 +354,12 @@ def bonus(message, tekUser):
                                 else:
                                     readl = 0
                             if child2.tag == 'ACCOUNTSUM':
-                                if readl == 1:
+                                if readl == 0:
                                     s = child2.text
+#                                    print(s)
                                     k = s.find(',')
                                     sum = s[0:k]
-#        print(int(sum)/100)
-        tekUser.Last_message = tekUser.Last_message = bot.send_message(message.chat.id, 'Баланс бонусов %s' % sum)
+        bon = int(sum)/100
+        print(bon)
+        tekUser.Last_message = tekUser.Last_message = bot.send_message(message.chat.id, 'Баланс бонусов %s' % bon)
         AfterAvtor(message, tekUser)

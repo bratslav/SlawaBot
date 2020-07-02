@@ -18,15 +18,16 @@ def avtorSMS(message, tekUser):
     key = types.InlineKeyboardMarkup()
     but_2 = types.InlineKeyboardButton(text="Відміна",  callback_data="Нахер3")
     key.add(but_2)
-    print("SMS")
     # Запускаем смс
     x = round(random.uniform(0, 99))
     #           try:
     send_sms(message.text, x)
     tekUser.sms_kod = str(x)
+#    bot.send_message(message.from_user.id,
+#                     'На введений номер телефону було відправлено СМС с кодом підтверждння. Введить код підтверждення: (' + str(
+#                         x) + ')', reply_markup=key)
     bot.send_message(message.from_user.id,
-                     'На введений номер телефону було відправлено СМС с кодом підтверждння. Введить код підтверждення: (' + str(
-                         x) + ')', reply_markup=key)
+                     'На введений номер телефону було відправлено СМС с кодом підтверждння. Введить код підтверждення', reply_markup=key)
     tekUser.enter_mode = 1
     tekUser.enter_sms = 1
 
@@ -35,6 +36,8 @@ def wronans(message, tekUser):
         Kepper.NewChat(message.chat.id)
         tekUser = Kepper.find(message)
     tekUser.Last_message = bot.send_message(message.from_user.id, 'Не той код. Авторизація не пройдена')
+    tekUser.enter_sms = 0
+    tekUser.enter_mode = 0
     menu(message, tekUser)
 
 def ChoiseCard(message, tekUser):
@@ -251,7 +254,9 @@ def get_client_id(message, tekUser):
                             if child2.tag == 'LOCKED':
                                 s.append(child2.text)
                         if s[3] == '0':
-                            tekUser.Cards.append(s)
+                            print(s[2],len(s[2]))
+                            if len(s[2]) == 13:
+                                tekUser.Cards.append(s)
     #    s = tekUser.Cards[0]
     #    print(s[2])
     if Found == 1:
@@ -274,6 +279,9 @@ def get_client_id(message, tekUser):
 
 def welcom_user(message, tekUser):
     bot.send_message(message.from_user.id, 'Код подходит. Авторизація пройдена!!!')
+    tekUser.enter_sms = 0
+    tekUser.enter_mode = 0
+
     get_client_id(message, tekUser)
 
 
@@ -313,11 +321,16 @@ def ShowProfil(message, tekUser):
     AfterAvtor(message, tekUser)
 
 def show_barcode(message, tekUser):
-    barCodeImage = barcode.get('ean13', tekUser.karta, writer=ImageWriter())
-    fullname = barCodeImage.save(pth+str(tekUser.chat_id))
+#     EAN = barcode.get_barcode_class('ean13')
+#     ean = EAN(tekUser.karta, writer=ImageWriter())
+    try:
+        barCodeImage_ = barcode.get('ean13', tekUser.karta, writer=ImageWriter())
+        barCodeImage_.save(pth+str(tekUser.chat_id))
+    except:
+        tekUser.Last_message = bot.send_message(message.chat.id,'Неможливо відобразити штрихкод')
 
 
 def drawing(message, tekUser):
     im = open(pth + str(tekUser.chat_id) + '.png', 'rb').read()
-    tekUser.Last_message = bot.send_photo(message.chat.id, im, 'Це ваша картка. Щоб використатися покажіть цей екран поперед оплати''')
+    tekUser.Last_message = bot.send_photo(message.chat.id, im, 'Це ваша картка. Щоб використатись покажіть цей екран поперед оплати''')
     AfterAvtor(message, tekUser)

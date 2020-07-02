@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <ErrorInfo>
+    <ErrorCode>0</ErrorCode>
+  </ErrorInfo>
+  <Results>
+    <ResultQuery>
+      <CLNTID>33</CLNTID>
+      <CLNTGRPID>2</CLNTGRPID>
+      <COMPANYID />
+      <CLNTNAME>Артур Сафанюк</CLNTNAME>
+      <CLNTBIRTHDAY>19910508000000</CLNTBIRTHDAY>
+      <LOCKED>0</LOCKED>
+      <DELFLAG>0</DELFLAG>
+      <UPDATENUM>6</UPDATENUM>
+    </ResultQuery>
+  </Results>
+</Root>

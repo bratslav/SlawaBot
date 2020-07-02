@@ -1,2 +1,2 @@
-# SlawaBot
+﻿# BileSuheBot
 Бот для БелоеСухое

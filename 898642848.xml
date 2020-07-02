@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <ErrorInfo>
+    <ErrorCode>0</ErrorCode>
+  </ErrorInfo>
+  <Results>
+    <ResultQuery>
+      <DCARDID>33</DCARDID>
+      <CLNTID>33</CLNTID>
+      <DCARDCODE>8800000000336</DCARDCODE>
+      <DCARDNAME />
+      <ISPAYMENT>1</ISPAYMENT>
+      <PINCODE />
+      <LOCKED>0</LOCKED>
+      <DELFLAG>0</DELFLAG>
+      <UPDATENUM>4</UPDATENUM>
+    </ResultQuery>
+    <ResultQuery>
+      <DCARDID>-33</DCARDID>
+      <CLNTID>33</CLNTID>
+      <DCARDCODE>0660722259</DCARDCODE>
+      <DCARDNAME />
+      <ISPAYMENT>0</ISPAYMENT>
+      <PINCODE />
+      <LOCKED>0</LOCKED>
+      <DELFLAG>0</DELFLAG>
+      <UPDATENUM>50</UPDATENUM>
+    </ResultQuery>
+  </Results>
+</Root>

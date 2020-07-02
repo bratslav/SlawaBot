@@ -1,15 +1,17 @@
-TOKEN = '1288551964:AAHF1VIJvu8JJhs4vnNC4vV9d9J3jQAh2Fg'
+#TOKEN = '1288551964:AAHF1VIJvu8JJhs4vnNC4vV9d9J3jQAh2Fg'
+TOKEN = '1373301482:AAHtV-J6M3CuLQ1qmUlCgJ-u7ccz3ihxEhM'
 
 TIMEZONE = 'Europe/Kiev'
 TIMEZONE_COMMON_NAME = 'Kiev'
 
-BotName = 'WhiteDryBot'
-pth = 'c:\\SlawaBot\\'
+BotName = 'BileSuheBot'
+pth = 'd:\\Bot\\'
 
 class User(object):
     def __init__(self, chat_id):
         self.chat_id = chat_id  # Это ID чата
         self.Last_message = 0
+        self.enter_sms = 0
         self.enter_mode = 0
         self.enter_number = 0
         self.enter_pol = 0

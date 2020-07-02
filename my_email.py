@@ -32,30 +32,34 @@ def send_email_(message, tekUser, message1):
     main_menu(message, tekUser, 'Ваше сообщение отправлено')
 
 def send_email(message, tekUser, message1):
-    msg = MIMEMultipart()
+
+    try:
+        msg = MIMEMultipart()
 #    message = 'Test message'
-    password = 'IH4WECuyj0km'
+        password = 'IH4WECuyj0km'
 
-    msg['From'] = 'bot@beloesuhoe.com.ua'
-    msg['To'] = 'Infochatbot@beloesuhoe.com.ua'
+        msg['From'] = 'bot@beloesuhoe.com.ua'
+        msg['To'] = 'Infochatbot@beloesuhoe.com.ua'
     #    msg['To'] = 'bratslav1776@gmail.com'
-    msg['Subject'] = message.from_user.username
+        msg['Subject'] = message.from_user.username
 
-    message_ = 'Клиент: ' + tekUser.email_name + '\n'
-    message_ = message_ +  'Телефон: ' + tekUser.email_phone + '\n'
-    message_ = message_ +  'Пользователь telegram: ' + message.from_user.username + '\n\n\n'
-    message_ = message_ + 'Сообщение: ' + tekUser.email_letter
+        message_ = 'Клиент: ' + tekUser.email_name + '\n'
+        message_ = message_ +  'Телефон: ' + tekUser.email_phone + '\n'
+        message_ = message_ +  'Пользователь telegram: ' + message.from_user.username + '\n\n\n'
+        message_ = message_ + 'Сообщение: ' + tekUser.email_letter
 
-    msg.attach(MIMEText(message_, 'plain'))
+        msg.attach(MIMEText(message_, 'plain'))
 
-    server = smtplib.SMTP('mx1.mirohost.net:25')
+        server = smtplib.SMTP('mx1.mirohost.net:25')
 
-    server.starttls()
+        server.starttls()
 
-    server.login(msg['From'], password)
+        server.login(msg['From'], password)
 
-    server.sendmail(msg['From'], msg['To'], msg.as_string())
+        server.sendmail(msg['From'], msg['To'], msg.as_string())
 
-    server.quit()
+        server.quit()
 
-    main_menu(message, tekUser, 'Ваше сообщение отправлено')
+        main_menu(message, tekUser, 'Ваше сообщение отправлено')
+    except:
+        main_menu(message, tekUser, 'Ошибка отправки сообщения')

@@ -112,9 +112,9 @@ def Shops(message):
 
 def geophone1(message,tekUser):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    button_geo = types.KeyboardButton(text="Показать на карте ближайший магазин", request_location=True)
+    button_geo = types.KeyboardButton(text="Показати на мапі найблищий магазин", request_location=True)
     keyboard.add(button_geo)
-    tekUser.Last_message = bot.send_message(message.chat.id, "Показать на карте ближайший магазин", reply_markup=keyboard)
+    tekUser.Last_message = bot.send_message(message.chat.id, "Показати на мапі найблищий магазин", reply_markup=keyboard)
 
 
 def greatCircleDistance(lat1, lon1, lat2, lon2):

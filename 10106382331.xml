@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <ErrorInfo>
+    <ErrorCode>0</ErrorCode>
+  </ErrorInfo>
+  <Results>
+    <ResultQuery>
+      <CLNTID>100008</CLNTID>
+      <CLNTGRPID>7</CLNTGRPID>
+      <COMPANYID />
+      <CLNTNAME>Andrii Andrii Andrii</CLNTNAME>
+      <CLNTBIRTHDAY>805103000000</CLNTBIRTHDAY>
+      <LOCKED>0</LOCKED>
+      <DELFLAG>0</DELFLAG>
+      <UPDATENUM>153574</UPDATENUM>
+    </ResultQuery>
+  </Results>
+</Root>

@@ -53,10 +53,10 @@ def send_sms(phone, x):
         </numbers>
         </SMS>''' % (login, password, text_message, msg_id, phone_sms)
 
-#    senddata = [('XML', send_sms)]
-#    senddata = urllib.parse.urlencode(senddata)
-#    path = 'http://api.myatompark.com/members/sms/xml.php'
-#    req = urllib.request.Request(path, senddata)
-#    req.add_header("Content-type", "application/x-www-form-urlencoded")
-#    req.data = req.data.encode('utf-8')
-#    result = urllib.request.urlopen(req).read()
+    senddata = [('XML', send_sms)]
+    senddata = urllib.parse.urlencode(senddata)
+    path = 'http://api.myatompark.com/members/sms/xml.php'
+    req = urllib.request.Request(path, senddata)
+    req.add_header("Content-type", "application/x-www-form-urlencoded")
+    req.data = req.data.encode('utf-8')
+    result = urllib.request.urlopen(req).read()

@@ -43,7 +43,9 @@ def inline(message):
     key_3.add(but_3)
 #    bot.send_sticker(message.chat.id,'CAACAgIAAxkBAAIPbV7Q2Hy8VKowsa2XtFqd0MGAgkAnAAIEAANKy2YlI5qz2TO7-rUZBA')
 #    bot.send_sticker(message.chat.id,'CAACAgIAAxkBAAIPbl7Q2U07KhAhcJJBKvbrWDRhAnz4AAIFAANKy2Yl_TTZUhVblp4ZBA')
-    bot.send_sticker(message.chat.id,'CAACAgIAAxkBAAIPal7QsxOw5wJf1UwnmUGBQL9sexgRAAIDAANKy2YlSiKFGzUAAcOgGQQ')
+    #    bot.send_sticker(message.chat.id,'CAACAgIAAxkBAAIPal7QsxOw5wJf1UwnmUGBQL9sexgRAAIDAANKy2YlSiKFGzUAAcOgGQQ')
+    bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAIPzF7944bl5bpEWECDXAmaIkV6hoJaAAIHAANKy2YlW1fzFXBeESoaBA')
+
     tekUser.Last_message = bot.send_message(message.chat.id, "Ласкаво просимо до нашого telegram bot", reply_markup=key)
 
 
@@ -63,7 +65,7 @@ def inlin(c):
             menu(c.message, tekUser)
     elif c.data == "Назад1":
         delete_last_message(c.message)
-        menu(c.message, tekUser)
+        main_menu(c.message, tekUser)
     #        additional(c.message)
     elif c.data == "Автор":
         key = types.InlineKeyboardMarkup()
@@ -73,7 +75,7 @@ def inlin(c):
         tekUser.init_var()
         tekUser.enter_mode = 1
         tekUser.enter_number = 1
-        bot.send_message(c.message.chat.id, 'Введить номер телефону ( 0ХХХХХХХХХ):', reply_markup=key)
+        bot.send_message(c.message.chat.id, 'Мобільний телефон ( 0ХХХХХХХХХ):', reply_markup=key)
     #        avtorizacia(c.message)
     elif c.data == "Профль":
         ShowProfil(c.message, tekUser)
@@ -205,85 +207,81 @@ def handle_text_messages(message):
             tekUser.enter_mode = 0
             tekUser.enter_sms_number = 0
             if message.text == tekUser.sms_kod:
-                # tekUser.phone_nuber = message.text
-                #            print(tekUser.phone_nuber)
+                tekUser.enter_sms_number = 0
                 welcom_user(message, tekUser)
+
             else:
+                tekUser.enter_sms_number = 0
                 wronans(message, tekUser)
-        #        elif tekUser.enter_pol == 1: # Вводим пол
-        #            tekUser.enter_mode = 0
-        #            tekUser.enter_pol = 0
-        #            tekUser.pol = message.text
-        #            qwect(message,tekUser)
         elif tekUser.enter_fam == 1:  # Вводим фамилию
             tekUser.enter_mode = 0
             tekUser.enter_fam = 0
             tekUser.fam = message.text
             print('Пишем фамилию')
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect(message, tekUser)
         elif tekUser.enter_im == 1:  # Вводим Имя
             tekUser.enter_mode = 0
             tekUser.enter_im = 0
             tekUser.name = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect(message, tekUser)
         elif tekUser.enter_jn == 1:  # Вводим Отчество
             tekUser.enter_mode = 0
             tekUser.enter_jn = 0
             tekUser.otch = message.text
             tekUser.full_name = tekUser.fam + ' ' + tekUser.name + ' ' + tekUser.otch
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect(message, tekUser)
         elif tekUser.enter_dr == 1:  # Вводим Дата рождения
             tekUser.enter_mode = 0
             tekUser.enter_dr = 0
             tekUser.birth_date = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect(message, tekUser)
         elif tekUser.enter_ob == 1:  # Вводим Область
             tekUser.enter_mode = 0
             tekUser.enter_ob = 0
             tekUser.oblast = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect(message, tekUser)
         elif tekUser.enter_rn == 1:  # Вводим Район
             tekUser.enter_mode = 0
             tekUser.enter_rn = 0
             tekUser.rajon = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect(message, tekUser)
         elif tekUser.enter_gr == 1:  # Вводим город
             tekUser.enter_mode = 0
             tekUser.enter_gr = 0
             tekUser.gorod = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect(message, tekUser)
         elif tekUser.enter_tl == 1:  # Вводим телефон
             tekUser.enter_mode = 0
             tekUser.enter_tl = 0
             tekUser.phone = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect(message, tekUser)
         elif tekUser.enter_em == 1:  # Вводим Email
             tekUser.enter_mode = 0
             tekUser.enter_em = 0
             tekUser.email = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             finish(message, tekUser)
         elif tekUser.enter_email_name == 1:
             print('Имя для мэйла')
             tekUser.enter_mode = 0
             tekUser.enter_email_name = 0
             tekUser.email_name = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect2(message, tekUser)
         elif tekUser.enter_email_phone == 1:
             print('Телефон для мэйла')
             tekUser.enter_mode = 0
             tekUser.enter_email_phone = 0
             tekUser.email_phone = message.text
-            delete_last_message(message)
+#            delete_last_message(message)
             qwect2(message, tekUser)
         elif tekUser.enter_email_letter == 1:
             print('Сообщение для мэйла')
@@ -299,9 +297,9 @@ def handle_text_messages(message):
             bot.send_message(message.from_user.id, 'Привет Слава!')
         elif message.text == "назад":
             AfterAvtor(message, tekUser)
-        else:
-            bot.send_message(message.from_user.id, tekUser.chat_id)
-#        bot.send_message(message.from_user.id, 'Не розумію. Напишить щось інше.')
+            #        else:
+#            bot.send_message(message.from_user.id, tekUser.chat_id)
+        bot.send_message(message.from_user.id, 'Не розумію. Напишить щось інше.')
 
 
 
@@ -317,7 +315,7 @@ def delete_last_message(message):
     try:
         s.get('https://api.telegram.org/bot{0}/deletemessage?message_id={1}&chat_id={2}'.format(TOKEN, tekUser.Last_message.message_id,message.chat.id))
     except:
-        print('Лажа')
+        print('Неудачная попытка удалить сообщение')
 
 
 def geophone(message):
@@ -328,7 +326,7 @@ def geophone(message):
     button_nazad = types.KeyboardButton(text="назад", request_location=False)
     keyboard.add(button_geo, button_nazad)
     bot.send_message(message.chat.id,
-                     "Обери вариант:",
+                     "Обери варіант:",
                      reply_markup=keyboard)
 
 
